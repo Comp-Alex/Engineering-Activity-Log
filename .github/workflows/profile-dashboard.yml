@@ -33,8 +33,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
           git add README.md dashboard/activity-log.md
           if git diff --cached --quiet; then
             echo "Dashboard is already up to date."
