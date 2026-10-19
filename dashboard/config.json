@@ -24,7 +24,9 @@
     "Random-activities"
   ],
   "collection_repo_excluded_names": [
-    "MazeBot-Finals-in-Microprocessor-Lab"
+    "MazeBot-Finals-in-Microprocessor-Lab",
+    "Control-Systems-Activities",
+    "LabScentique"
   ],
   "collection_log_path": ".github/engineering-activity-log.md"
 }
