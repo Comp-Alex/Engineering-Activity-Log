@@ -50,7 +50,7 @@ Jupyter Notebook (45.4%), C++ (13.4%), JavaScript (9.2%), PHP (8.9%), CSS (7.7%)
 
 ## Engineering Journal
 
-**Today's summary:** GitHub recorded pushes to 12 public repositories today: Computer-Architecture-and-Organization-Lab-Activities, Software-Design-Lab-Activities, Control-Systems-Lab-Activities, Microprocessor-Lab-Activities, Network-Diagnostics-Tool-using-ESP32-LVGL, MazeBot-Finals-in-Microprocessor-Lab, Personal-Website-Portfolio, MixifyStats, Credenza, LabScentique, Random-activities, Control-Systems-Activities. This journal entry captures the current profile and repository snapshot.
+**Today's summary:** GitHub recorded non-dashboard pushes to 7 public repositories today: Computer-Architecture-and-Organization-Lab-Activities, Software-Design-Lab-Activities, Control-Systems-Lab-Activities, Microprocessor-Lab-Activities, Network-Diagnostics-Tool-using-ESP32-LVGL, MazeBot-Finals-in-Microprocessor-Lab, Personal-Website-Portfolio. This journal entry captures the current profile and repository snapshot.
 
 The daily profile snapshot is recorded in the [engineering activity log](dashboard/activity-log.md). The journal continues on quiet repository days too; an unchanged repository list is not treated as proof of inactivity.
 
