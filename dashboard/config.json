@@ -1,0 +1,27 @@
+{
+  "github_username": "Comp-Alex",
+  "display_name": "Comp-Alex",
+  "headline": "BS Computer Engineering Student | Robotics, Embedded Systems, and Connected Devices",
+  "intro": "I am a Computer Engineering student building practical projects at the intersection of hardware and software. I enjoy taking ideas from circuit and firmware experiments through to connected applications, with a focus on learning by building and documenting the engineering along the way.",
+  "location": "",
+  "focus_areas": [
+    "Robotics",
+    "ESP32 development",
+    "Arduino",
+    "Networking",
+    "Embedded systems",
+    "Web development",
+    "AI and Raspberry Pi"
+  ],
+  "recent_repository_limit": 5,
+  "latest_commit_limit": 5,
+  "language_scan_limit": 20,
+  "collection_repo_name_keywords": [
+    "Activities",
+    "Lab"
+  ],
+  "collection_repo_names": [
+    "Random-activities"
+  ],
+  "collection_log_path": ".github/engineering-activity-log.md"
+}
