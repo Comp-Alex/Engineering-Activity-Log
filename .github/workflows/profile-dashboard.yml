@@ -2,7 +2,7 @@ name: Update Engineering Activity Dashboard
 
 on:
   schedule:
-    - cron: "0 17 * * *"
+    - cron: "20 17 * * *"
   workflow_dispatch:
 
 permissions:
