@@ -23,5 +23,8 @@
   "collection_repo_names": [
     "Random-activities"
   ],
+  "collection_repo_excluded_names": [
+    "MazeBot-Finals-in-Microprocessor-Lab"
+  ],
   "collection_log_path": ".github/engineering-activity-log.md"
 }

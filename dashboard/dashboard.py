@@ -360,11 +360,15 @@ def sync_collection_repositories(
 
     keywords = [value.casefold() for value in config["collection_repo_name_keywords"]]
     explicit_names = {value.casefold() for value in config.get("collection_repo_names", [])}
+    excluded_names = {value.casefold() for value in config.get("collection_repo_excluded_names", [])}
     targets = [
         repository
         for repository in repositories
-        if repository.get("name", "").casefold() in explicit_names
-        or any(keyword in repository.get("name", "").casefold() for keyword in keywords)
+        if repository.get("name", "").casefold() not in excluded_names
+        and (
+            repository.get("name", "").casefold() in explicit_names
+            or any(keyword in repository.get("name", "").casefold() for keyword in keywords)
+        )
     ]
     recent_limit = max(1, int(config.get("recent_repository_limit", 5)))
     stats = {
@@ -418,7 +422,8 @@ def sync_collection_repositories(
         except Exception as error:
             failures.append(f"{repository['full_name']}: {error}")
 
-    print(f"Matched {len(targets)} repositories using name keywords: {', '.join(keywords)}")
+    exclusions = ", ".join(sorted(excluded_names)) or "none"
+    print(f"Matched {len(targets)} repositories; excluded names: {exclusions}")
     if failures:
         raise RuntimeError("Some collection repositories could not be updated: " + "; ".join(failures))
 
