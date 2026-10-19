@@ -1,4 +1,4 @@
-name: Update GitHub Profile Dashboard
+name: Update Engineering Activity Dashboard
 
 on:
   schedule:
@@ -26,12 +26,12 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Generate dashboard and daily journal entry
+      - name: Generate engineering dashboard and daily journal entry
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python dashboard/dashboard.py
 
-      - name: Commit and push changes
+      - name: Commit and push dashboard to main
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
