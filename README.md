@@ -32,25 +32,25 @@ Jupyter Notebook (45.4%), C++ (13.4%), JavaScript (9.2%), PHP (8.9%), CSS (7.7%)
 
 | Repository | Language | Updated | Description |
 | --- | --- | ---: | --- |
-| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | Python | 2026-10-19 | - |
-| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | HTML | 2026-10-19 | My Activities For Software Design Laboratory |
-| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | Jupyter Notebook | 2026-10-19 | - |
 | [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | C++ | 2026-10-19 | - |
-| [Network-Diagnostics-Tool-using-ESP32-LVGL](https://github.com/Comp-Alex/Network-Diagnostics-Tool-using-ESP32-LVGL) | C++ | 2026-10-19 | Develop a standalone embedded system that analyzes Wi-Fi network performance.  Provide real-time visualization of signal strength, channel occupancy, and latency.  Create an intuitive touch-based interface using LVGL for user interaction.  Enable optional logging of diagnostic data for later review. |
+| [Random-activities](https://github.com/Comp-Alex/Random-activities) | Python | 2026-10-19 | - |
+| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | Jupyter Notebook | 2026-10-19 | - |
+| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | HTML | 2026-10-19 | My Activities For Software Design Laboratory |
+| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | Python | 2026-10-19 | - |
 
 ## Latest Commits
 
 | Repository | Latest commit | Date |
 | --- | --- | ---: |
-| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [36e4ee9](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/36e4ee94fac93b6a5a6a3ad9a1dd0554f83703d1) Update dashboard.py | 2026-10-19 |
-| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | [0ff770a](https://github.com/Comp-Alex/Software-Design-Lab-Activities/commit/0ff770ad90674d0068cb3d4a8278f670d52bb0ea) Add interactive engineering dashboard | 2026-10-19 |
-| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [facb525](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/facb525974a7d733e9e49a15372240e7db2150da) Add automated engineering dashboard | 2026-10-19 |
-| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | [32be756](https://github.com/Comp-Alex/Microprocessor-Lab-Activities/commit/32be75662a2b212188832af8aa800b5c06e0e1b6) Add GitHub Pages engineering dashboard | 2026-10-19 |
-| [Network-Diagnostics-Tool-using-ESP32-LVGL](https://github.com/Comp-Alex/Network-Diagnostics-Tool-using-ESP32-LVGL) | [1cd1686](https://github.com/Comp-Alex/Network-Diagnostics-Tool-using-ESP32-LVGL/commit/1cd1686223d92b777ecb66dfeb1d53b9f18cb2ff) Add ESP32 engineering dashboard generator and generated DASHBOARD.md\n\nAdds dashboard/dashboard.py, config, README template, assets, and generated output.\n\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com> | 2026-10-19 |
+| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | [a57a417](https://github.com/Comp-Alex/Microprocessor-Lab-Activities/commit/a57a417f675a6bcfecf222e02989315094885ba5) docs: update engineering journal 2026-10-19 | 2026-10-19 |
+| [Random-activities](https://github.com/Comp-Alex/Random-activities) | [dcbfdbc](https://github.com/Comp-Alex/Random-activities/commit/dcbfdbc3b65e0007a138a0e89ebe3a3636e8d174) docs: update engineering journal 2026-10-19 | 2026-10-19 |
+| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [7f76e0d](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/7f76e0d49b9b49e31b1869f207ee881520a666fe) docs: update engineering journal 2026-10-19 | 2026-10-19 |
+| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | [dff9619](https://github.com/Comp-Alex/Software-Design-Lab-Activities/commit/dff96196521c4f48c5b5972c3792e6ff2160f19a) docs: update engineering journal 2026-10-19 | 2026-10-19 |
+| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [a3817c3](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/a3817c3f040287485c875b3c53583966aca28c68) docs: update engineering journal 2026-10-19 | 2026-10-19 |
 
 ## Engineering Journal
 
-**Today's summary:** GitHub recorded non-dashboard pushes to 7 public repositories today: Computer-Architecture-and-Organization-Lab-Activities, Software-Design-Lab-Activities, Control-Systems-Lab-Activities, Microprocessor-Lab-Activities, Network-Diagnostics-Tool-using-ESP32-LVGL, MazeBot-Finals-in-Microprocessor-Lab, Personal-Website-Portfolio. This journal entry captures the current profile and repository snapshot.
+**Today's summary:** GitHub recorded non-dashboard pushes to 7 public repositories today: Microprocessor-Lab-Activities, Control-Systems-Lab-Activities, Software-Design-Lab-Activities, Computer-Architecture-and-Organization-Lab-Activities, Network-Diagnostics-Tool-using-ESP32-LVGL, MazeBot-Finals-in-Microprocessor-Lab, Personal-Website-Portfolio. This journal entry captures the current profile and repository snapshot.
 
 The daily profile snapshot is recorded in the [engineering activity log](dashboard/activity-log.md). The journal continues on quiet repository days too; an unchanged repository list is not treated as proof of inactivity.
 
