@@ -12,7 +12,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -20,6 +20,42 @@ from typing import Any
 API_BASE = "https://api.github.com"
 ROOT = Path(__file__).resolve().parent.parent
 DASHBOARD_DIR = ROOT / "dashboard"
+MANILA_OFFSET = timedelta(hours=8)
+SCHEDULE_SLOTS = {
+    "45 1 * * *": ("09:45", "9:45 AM"),
+    "45 9 * * *": ("17:45", "5:45 PM"),
+    "45 17 * * *": ("01:45", "1:45 AM"),
+}
+
+
+def get_run_context(
+    schedule: str | None = None,
+    now_utc: datetime | None = None,
+) -> tuple[str, str, str]:
+    current_utc = now_utc or datetime.now(timezone.utc)
+    current_manila = current_utc + MANILA_OFFSET
+    schedule = schedule if schedule is not None else os.environ.get("GITHUB_EVENT_SCHEDULE", "")
+    slot, slot_label = SCHEDULE_SLOTS.get(
+        schedule,
+        (current_manila.strftime("%H:%M"), current_manila.strftime("%I:%M %p").lstrip("0")),
+    )
+    return current_manila.date().isoformat(), slot, slot_label
+
+
+def entry_marker(today: str, slot: str) -> str:
+    return f"<!-- dashboard-entry:{today}:{slot.replace(':', '')} -->"
+
+
+def was_pushed_on_manila_date(pushed_at: str | None, today: str) -> bool:
+    if not pushed_at:
+        return False
+    try:
+        timestamp = datetime.fromisoformat(pushed_at.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    if timestamp.tzinfo is None:
+        timestamp = timestamp.replace(tzinfo=timezone.utc)
+    return (timestamp + MANILA_OFFSET).date().isoformat() == today
 
 
 class GitHubAPIError(RuntimeError):
@@ -94,7 +130,9 @@ class GitHubClient:
 
 
 def has_non_automated_commit(client: GitHubClient, repository: dict[str, Any], today: str) -> bool:
-    query = urllib.parse.urlencode({"since": f"{today}T00:00:00Z", "per_page": 100})
+    local_midnight = datetime.fromisoformat(today).replace(tzinfo=timezone(MANILA_OFFSET))
+    since = local_midnight.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    query = urllib.parse.urlencode({"since": since, "per_page": 100})
     try:
         commits = client.get_json(f"/repos/{repository['full_name']}/commits?{query}")
     except GitHubAPIError as error:
@@ -207,7 +245,7 @@ def collect_dashboard_data(
     pushed_today = [
         repository
         for repository in repositories
-        if (repository.get("pushed_at") or "")[:10] == today
+        if was_pushed_on_manila_date(repository.get("pushed_at"), today)
         and has_non_automated_commit(client, repository, today)
     ]
 
@@ -291,7 +329,13 @@ def render_focus_areas(focus_areas: list[str]) -> str:
     return "\n".join(f"- {markdown_cell(area)}" for area in focus_areas)
 
 
-def render_activity_entry(today: str, data: dict[str, Any], config: dict[str, Any]) -> str:
+def render_activity_entry(
+    today: str,
+    slot: str,
+    slot_label: str,
+    data: dict[str, Any],
+    config: dict[str, Any],
+) -> str:
     stats = data["stats"]
     if data["recent_repositories"]:
         recent_lines = [
@@ -303,10 +347,11 @@ def render_activity_entry(today: str, data: dict[str, Any], config: dict[str, An
         recent = "  - No public repositories were returned by the GitHub API."
 
     focus = ", ".join(config["focus_areas"])
-    return f"""<!-- dashboard-entry:{today} -->
-## {today}
+    return f"""{entry_marker(today, slot)}
+## {today} - {slot_label} Manila
 
-- **Current date:** {today} (UTC)
+- **Current date:** {today} (Manila)
+- **Run time:** {slot_label} Manila
 - **Repository count:** {stats['repository_count']} tracked public repositories
 - **Recent repositories:**
 {recent}
@@ -316,11 +361,14 @@ def render_activity_entry(today: str, data: dict[str, Any], config: dict[str, An
 """.rstrip()
 
 
-def upsert_daily_entry(log_text: str, entry: str, today: str) -> str:
-    marker = f"<!-- dashboard-entry:{today} -->"
+def upsert_daily_entry(log_text: str, entry: str, today: str, slot: str | None = None) -> str:
+    marker = entry_marker(today, slot) if slot else f"<!-- dashboard-entry:{today} -->"
     start = log_text.find(marker)
     if start >= 0:
-        next_entry = re.search(r"(?m)^<!-- dashboard-entry:\d{4}-\d{2}-\d{2} -->", log_text[start + len(marker) :])
+        next_entry = re.search(
+            r"(?m)^<!-- dashboard-entry:\d{4}-\d{2}-\d{2}(?::\d{4})? -->",
+            log_text[start + len(marker) :],
+        )
         end = start + len(marker) + next_entry.start() if next_entry else len(log_text)
         suffix = "\n\n" if next_entry else ""
         updated = log_text[:start] + entry + suffix + log_text[end:]
@@ -328,16 +376,24 @@ def upsert_daily_entry(log_text: str, entry: str, today: str) -> str:
     return log_text.rstrip() + "\n\n" + entry + "\n"
 
 
-def collection_entry(today: str, repository: dict[str, Any], data: dict[str, Any], config: dict[str, Any]) -> str:
+def collection_entry(
+    today: str,
+    slot: str,
+    slot_label: str,
+    repository: dict[str, Any],
+    data: dict[str, Any],
+    config: dict[str, Any],
+) -> str:
     recent = "\n".join(
         f"  - {repository_link(item)} (updated {short_date(item.get('updated_at'))})"
         for item in data["recent_repositories"]
     ) or "  - No public repositories were returned by the GitHub API."
     stats = data["stats"]
-    return f"""<!-- dashboard-entry:{today} -->
-## {today}
+    return f"""{entry_marker(today, slot)}
+## {today} - {slot_label} Manila
 
-- **Current date:** {today} (UTC)
+- **Current date:** {today} (Manila)
+- **Run time:** {slot_label} Manila
 - **Repository count:** {stats['repository_count']} public repositories
 - **Recent repositories:**
 {recent}
@@ -352,6 +408,8 @@ def sync_collection_repositories(
     write_client: GitHubClient,
     config: dict[str, Any],
     today: str,
+    slot: str,
+    slot_label: str,
 ) -> None:
     username = urllib.parse.quote(config["github_username"], safe="")
     profile = read_client.get_json(f"/users/{username}")
@@ -405,14 +463,14 @@ def sync_collection_repositories(
                 )
                 sha = None
 
-            entry = collection_entry(today, repository, data, config)
-            updated = upsert_daily_entry(existing, entry, today)
+            entry = collection_entry(today, slot, slot_label, repository, data, config)
+            updated = upsert_daily_entry(existing, entry, today, slot)
             if updated == existing:
                 print(f"Unchanged: {repository['full_name']}/{log_path}")
                 continue
 
             payload: dict[str, Any] = {
-                "message": f"docs: update engineering journal {today}",
+                "message": f"docs: update engineering journal {today} {slot_label} Manila",
                 "content": base64.b64encode(updated.encode("utf-8")).decode("ascii"),
             }
             if sha:
@@ -428,7 +486,13 @@ def sync_collection_repositories(
         raise RuntimeError("Some collection repositories could not be updated: " + "; ".join(failures))
 
 
-def build_readme(template: str, config: dict[str, Any], data: dict[str, Any], today: str) -> str:
+def build_readme(
+    template: str,
+    config: dict[str, Any],
+    data: dict[str, Any],
+    today: str,
+    slot_label: str,
+) -> str:
     profile = data["profile"]
     values = {
         "DISPLAY_NAME": markdown_cell(config["display_name"]),
@@ -444,7 +508,7 @@ def build_readme(template: str, config: dict[str, Any], data: dict[str, Any], to
         "RECENT_REPOSITORIES": render_recent_repositories(data["recent_repositories"]),
         "LATEST_COMMITS": render_latest_commits(data["latest_commits"]),
         "ENGINEERING_SUMMARY": data["engineering_summary"],
-        "LAST_REFRESHED": today,
+        "LAST_REFRESHED": f"{today} {slot_label} Manila",
         "PROFILE_BIO": markdown_cell(profile.get("bio") or "Computer Engineering student building practical systems.")
     }
     rendered = template
@@ -473,7 +537,7 @@ def main() -> None:
     )
     args = parser.parse_args()
     config = json.loads((DASHBOARD_DIR / "config.json").read_text(encoding="utf-8"))
-    today = datetime.now(timezone.utc).date().isoformat()
+    today, slot, slot_label = get_run_context()
     token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
 
     if args.sync_collection_repos_only:
@@ -489,15 +553,18 @@ def main() -> None:
             GitHubClient(write_token),
             config,
             today,
+            slot,
+            slot_label,
         )
         return
 
     template = (DASHBOARD_DIR / "README_TEMPLATE.md").read_text(encoding="utf-8")
     data = collect_dashboard_data(GitHubClient(token), config, today)
-    readme = build_readme(template, config, data, today)
+    readme = build_readme(template, config, data, today, slot_label)
     log_path = DASHBOARD_DIR / "activity-log.md"
     log = log_path.read_text(encoding="utf-8")
-    log = upsert_daily_entry(log, render_activity_entry(today, data, config), today)
+    entry = render_activity_entry(today, slot, slot_label, data, config)
+    log = upsert_daily_entry(log, entry, today, slot)
 
     write_if_changed(ROOT / "README.md", readme)
     write_if_changed(log_path, log)

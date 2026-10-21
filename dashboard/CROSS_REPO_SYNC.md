@@ -1,6 +1,6 @@
 # Cross-Repository Journal Sync
 
-The scheduled workflow writes a daily journal snapshot to `.github/engineering-activity-log.md` only in public repositories whose names contain `Activities` or `Lab` (case-insensitive). Each target repository receives at most one entry per UTC date. Re-running the workflow on the same day updates that date instead of making another journal commit.
+The scheduled workflow writes journal snapshots to `.github/engineering-activity-log.md` only in public repositories whose names contain `Activities` or `Lab` (case-insensitive), except explicitly excluded repositories. It runs three times daily in Manila time: 1:45 AM, 9:45 AM, and 5:45 PM. Each target gets one entry per scheduled slot; rerunning a slot updates that entry instead of creating a duplicate.
 
 ## Dashboard Destination
 

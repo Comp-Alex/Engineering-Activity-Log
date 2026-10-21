@@ -31,8 +31,8 @@
 
 **Today's summary:** {{ENGINEERING_SUMMARY}}
 
-The daily profile snapshot is recorded in the [engineering activity log](dashboard/activity-log.md). The journal continues on quiet repository days too; an unchanged repository list is not treated as proof of inactivity.
+Scheduled profile snapshots are recorded in the [engineering activity log](dashboard/activity-log.md). The journal continues on quiet repository days too; an unchanged repository list is not treated as proof of inactivity.
 
 ---
 
-*Dashboard refreshed {{LAST_REFRESHED}} (UTC) from the GitHub API.*
+*Dashboard refreshed {{LAST_REFRESHED}} from the GitHub API.*

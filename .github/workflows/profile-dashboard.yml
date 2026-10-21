@@ -31,6 +31,7 @@ jobs:
       - name: Generate engineering dashboard and daily journal entry
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_EVENT_SCHEDULE: ${{ github.event.schedule }}
         run: python dashboard/dashboard.py
 
       - name: Commit and push dashboard to main
@@ -49,4 +50,5 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_ACTIVITY_TOKEN: ${{ secrets.REPO_ACTIVITY_TOKEN }}
+          GITHUB_EVENT_SCHEDULE: ${{ github.event.schedule }}
         run: python dashboard/dashboard.py --sync-collection-repos-only
