@@ -32,21 +32,21 @@ Jupyter Notebook (45.4%), C++ (13.4%), JavaScript (9.2%), PHP (8.9%), CSS (7.7%)
 
 | Repository | Language | Updated | Description |
 | --- | --- | ---: | --- |
-| [MazeBot-Finals-in-Microprocessor-Lab](https://github.com/Comp-Alex/MazeBot-Finals-in-Microprocessor-Lab) | Python | 2026-10-22 | This is the code and video Repository for our MazeBot  |
+| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | HTML | 2026-10-22 | My Activities For Software Design Laboratory |
+| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | C++ | 2026-10-22 | - |
+| [Random-activities](https://github.com/Comp-Alex/Random-activities) | Python | 2026-10-22 | - |
+| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | Python | 2026-10-22 | - |
 | [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | Jupyter Notebook | 2026-10-22 | - |
-| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | Python | 2026-10-21 | - |
-| [Random-activities](https://github.com/Comp-Alex/Random-activities) | Python | 2026-10-21 | - |
-| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | C++ | 2026-10-21 | - |
 
 ## Latest Commits
 
 | Repository | Latest commit | Date |
 | --- | --- | ---: |
-| [MazeBot-Finals-in-Microprocessor-Lab](https://github.com/Comp-Alex/MazeBot-Finals-in-Microprocessor-Lab) | [8012fb4](https://github.com/Comp-Alex/MazeBot-Finals-in-Microprocessor-Lab/commit/8012fb4a59e9d40513468a7ed4120e11e9154902) chore: refresh robotics dashboard [skip ci] | 2026-10-22 |
-| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [ad93d39](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/ad93d395e1bb278b714fb23fac57c45ae50d21a2) Update engineering dashboard | 2026-10-22 |
-| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [6c09f46](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/6c09f463220332b7318c36686b47b55c704d16b6) docs: update engineering journal 2026-10-22 1:45 AM Manila | 2026-10-21 |
-| [Random-activities](https://github.com/Comp-Alex/Random-activities) | [bf54300](https://github.com/Comp-Alex/Random-activities/commit/bf54300f9e2b8878375358f0b4c11c2b5b8671a0) docs: update engineering journal 2026-10-22 1:45 AM Manila | 2026-10-21 |
-| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | [94dbf62](https://github.com/Comp-Alex/Microprocessor-Lab-Activities/commit/94dbf62198c77e878691c9cef62cc5a3fb0c68d6) docs: update engineering journal 2026-10-22 1:45 AM Manila | 2026-10-21 |
+| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | [284afba](https://github.com/Comp-Alex/Software-Design-Lab-Activities/commit/284afbabbeb596fb9e0b3f700c865033722bc882) chore: refresh engineering dashboard data | 2026-10-22 |
+| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | [6d25981](https://github.com/Comp-Alex/Microprocessor-Lab-Activities/commit/6d25981643793b380cc802395de2f104c98db3c4) docs: update engineering journal 2026-10-22 9:45 AM Manila | 2026-10-22 |
+| [Random-activities](https://github.com/Comp-Alex/Random-activities) | [63f3866](https://github.com/Comp-Alex/Random-activities/commit/63f3866dcecc645a55ea815a03118f94b9b55b32) docs: update engineering journal 2026-10-22 9:45 AM Manila | 2026-10-22 |
+| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [bfece18](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/bfece18dd5ffceb826e5a2c5bc5dfc989c77b468) docs: update engineering journal 2026-10-22 9:45 AM Manila | 2026-10-22 |
+| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [c5f24c5](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/c5f24c58f3090d30139fbb8e2b55cd2641157546) docs: update engineering journal 2026-10-22 9:45 AM Manila | 2026-10-22 |
 
 ## Engineering Journal
 
@@ -56,4 +56,4 @@ Scheduled profile snapshots are recorded in the [engineering activity log](dashb
 
 ---
 
-*Dashboard refreshed 2026-10-22 9:45 AM Manila from the GitHub API.*
+*Dashboard refreshed 2026-10-22 5:45 PM Manila from the GitHub API.*
