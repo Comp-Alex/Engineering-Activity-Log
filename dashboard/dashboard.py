@@ -442,6 +442,7 @@ def sync_collection_repositories(
     log_path = config["collection_log_path"]
     encoded_path = "/".join(urllib.parse.quote(part, safe="") for part in log_path.split("/"))
     failures: list[str] = []
+    skipped: list[str] = []
 
     for repository in targets:
         endpoint = f"/repos/{repository['full_name']}/contents/{encoded_path}"
@@ -449,6 +450,13 @@ def sync_collection_repositories(
             try:
                 contents = write_client.get_json(endpoint)
             except GitHubAPIError as error:
+                if error.status in (401, 403):
+                    skipped.append(f"{repository['full_name']}: {error.status}")
+                    print(
+                        f"Skipped: {repository['full_name']}/{log_path} "
+                        f"(HTTP {error.status}); check REPO_ACTIVITY_TOKEN permissions."
+                    )
+                    continue
                 if error.status != 404:
                     raise
                 contents = None
@@ -475,13 +483,25 @@ def sync_collection_repositories(
             }
             if sha:
                 payload["sha"] = sha
-            write_client.put_json(endpoint, payload)
+            try:
+                write_client.put_json(endpoint, payload)
+            except GitHubAPIError as error:
+                if error.status in (401, 403):
+                    skipped.append(f"{repository['full_name']}: {error.status}")
+                    print(
+                        f"Skipped: {repository['full_name']}/{log_path} "
+                        f"(HTTP {error.status}); check REPO_ACTIVITY_TOKEN permissions."
+                    )
+                    continue
+                raise
             print(f"Updated: {repository['full_name']}/{log_path}")
         except Exception as error:
             failures.append(f"{repository['full_name']}: {error}")
 
     exclusions = ", ".join(sorted(excluded_names)) or "none"
     print(f"Matched {len(targets)} repositories; excluded names: {exclusions}")
+    if skipped:
+        print(f"Skipped {len(skipped)} repository entries due to access restrictions.")
     if failures:
         raise RuntimeError("Some collection repositories could not be updated: " + "; ".join(failures))
 
