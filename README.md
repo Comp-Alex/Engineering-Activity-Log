@@ -11,7 +11,7 @@ I am a Computer Engineering student building practical projects at the intersect
 
 | Repositories | Public repositories | Followers | Following | Public gists | Stars | Forks |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 12 | 12 | 10 | 16 | 0 | 0 | 0 |
+| 13 | 13 | 10 | 16 | 0 | 0 | 0 |
 
 ## Engineering Focus
 
@@ -25,35 +25,35 @@ I am a Computer Engineering student building practical projects at the intersect
 
 ## Programming Languages
 
-Jupyter Notebook (45.4%), C++ (13.4%), JavaScript (9.2%), PHP (8.9%), CSS (7.7%), Python (7.4%), HTML (6.2%), Assembly (1.7%), PowerShell (0.0%), Batchfile (0.0%)<br>
-*Measured across the 12 most recently updated public repositories.*
+Jupyter Notebook (44.8%), C++ (13.2%), JavaScript (9.1%), PHP (8.8%), Python (8.6%), CSS (7.6%), HTML (6.1%), Assembly (1.7%), PowerShell (0.0%), Batchfile (0.0%)<br>
+*Measured across the 13 most recently updated public repositories.*
 
 ## Recently Updated Repositories
 
 | Repository | Language | Updated | Description |
 | --- | --- | ---: | --- |
-| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | Jupyter Notebook | 2026-10-30 | - |
-| [Random-activities](https://github.com/Comp-Alex/Random-activities) | Python | 2026-10-30 | - |
-| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | C++ | 2026-10-30 | - |
-| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | HTML | 2026-10-30 | My Activities For Software Design Laboratory |
+| [MazeBot-Finals-in-Microprocessor-Lab](https://github.com/Comp-Alex/MazeBot-Finals-in-Microprocessor-Lab) | Python | 2026-10-31 | This is the code and video Repository for our MazeBot  |
+| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | Jupyter Notebook | 2026-10-31 | - |
+| [Engineering-Activity-Log](https://github.com/Comp-Alex/Engineering-Activity-Log) | Python | 2026-10-31 | Automated engineering journal and GitHub dashboard tracking Computer Engineering projects, repository activity, and technical focus areas. |
 | [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | Python | 2026-10-30 | - |
+| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | HTML | 2026-10-30 | My Activities For Software Design Laboratory |
 
 ## Latest Commits
 
 | Repository | Latest commit | Date |
 | --- | --- | ---: |
-| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [97581aa](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/97581aae9eb5ac95d3df897e451aea8be5f6d8ff) docs: update engineering journal 2026-10-31 5:45 PM Manila | 2026-10-30 |
-| [Random-activities](https://github.com/Comp-Alex/Random-activities) | [a393150](https://github.com/Comp-Alex/Random-activities/commit/a39315038369fc5af46269ef0167f802bd6a37bd) docs: update engineering journal 2026-10-31 5:45 PM Manila | 2026-10-30 |
-| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | [7614e7f](https://github.com/Comp-Alex/Microprocessor-Lab-Activities/commit/7614e7fcac2ac6de2d7de464de76c115723da6bb) docs: update engineering journal 2026-10-31 5:45 PM Manila | 2026-10-30 |
-| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | [ca3a088](https://github.com/Comp-Alex/Software-Design-Lab-Activities/commit/ca3a088859d851821114b610ba93ff5b5670967b) docs: update engineering journal 2026-10-31 5:45 PM Manila | 2026-10-30 |
-| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [11c3ea3](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/11c3ea366965e8a7d78fd6f8591c658b31b8ce8e) docs: update engineering journal 2026-10-31 5:45 PM Manila | 2026-10-30 |
+| [MazeBot-Finals-in-Microprocessor-Lab](https://github.com/Comp-Alex/MazeBot-Finals-in-Microprocessor-Lab) | [e81978f](https://github.com/Comp-Alex/MazeBot-Finals-in-Microprocessor-Lab/commit/e81978fe46095a0bbc0f67bbdcecdef5812344d6) chore: refresh robotics dashboard [skip ci] | 2026-10-31 |
+| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [5b29493](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/5b294933a8ba9a9db2a06e2bf5d86354b93937b2) Update engineering dashboard | 2026-10-31 |
+| [Engineering-Activity-Log](https://github.com/Comp-Alex/Engineering-Activity-Log) | [7d613e0](https://github.com/Comp-Alex/Engineering-Activity-Log/commit/7d613e0812326e8fcda361ed2ebe8e8fb440fdbd) Add CI and handle GitHub API access errors | 2026-10-31 |
+| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [813a226](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/813a2267366f22e404564af892d5b2e32678b512) docs: update engineering journal 2026-10-31 1:45 AM Manila | 2026-10-30 |
+| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | [5d1a8b4](https://github.com/Comp-Alex/Software-Design-Lab-Activities/commit/5d1a8b4573dfa230c4e320d10b34ff7ee2a274ab) docs: update engineering journal 2026-10-31 1:45 AM Manila | 2026-10-30 |
 
 ## Engineering Journal
 
-**Today's summary:** No non-dashboard repository pushes were recorded on 2026-10-31. This entry captures the daily profile snapshot and keeps the engineering journal continuous; it does not infer coding activity from an unchanged repository list.
+**Today's summary:** GitHub recorded non-dashboard pushes to 1 public repository today: Engineering-Activity-Log. This journal entry captures the current profile and repository snapshot.
 
 Scheduled profile snapshots are recorded in the [engineering activity log](dashboard/activity-log.md). The journal continues on quiet repository days too; an unchanged repository list is not treated as proof of inactivity.
 
 ---
 
-*Dashboard refreshed 2026-10-31 1:45 AM Manila from the GitHub API.*
+*Dashboard refreshed 2026-10-31 9:45 AM Manila from the GitHub API.*
