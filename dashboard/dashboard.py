@@ -16,7 +16,6 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
-
 API_BASE = "https://api.github.com"
 ROOT = Path(__file__).resolve().parent.parent
 DASHBOARD_DIR = ROOT / "dashboard"
@@ -64,6 +63,10 @@ class GitHubAPIError(RuntimeError):
         self.status = status
 
 
+def is_transient_gitHub_api_error(error: GitHubAPIError) -> bool:
+    return error.status in (401, 403, 404, 409, 429)
+
+
 class GitHubClient:
     def __init__(self, token: str | None) -> None:
         self.token = token
@@ -79,7 +82,7 @@ class GitHubClient:
 
         request = urllib.request.Request(f"{API_BASE}{endpoint}", headers=headers)
         try:
-            with urllib.request.urlopen(request, timeout=30) as response:
+            with urllib.request.urlopen(request, timeout=30) as response:  # nosec B310
                 return json.load(response)
         except urllib.error.HTTPError as error:
             detail = error.read().decode("utf-8", errors="replace")
@@ -104,7 +107,7 @@ class GitHubClient:
             method="PUT",
         )
         try:
-            with urllib.request.urlopen(request, timeout=30) as response:
+            with urllib.request.urlopen(request, timeout=30) as response:  # nosec B310
                 return json.load(response)
         except urllib.error.HTTPError as error:
             detail = error.read().decode("utf-8", errors="replace")
@@ -117,12 +120,20 @@ class GitHubClient:
         page = 1
         while True:
             query = urllib.parse.urlencode(
-                {"type": "owner", "sort": "updated", "direction": "desc", "per_page": 100, "page": page}
+                {
+                    "type": "owner",
+                    "sort": "updated",
+                    "direction": "desc",
+                    "per_page": 100,
+                    "page": page,
+                }
             )
             page_repositories = self.get_json(f"/users/{username}/repos?{query}")
             if not isinstance(page_repositories, list) or not page_repositories:
                 break
-            repositories.extend(repo for repo in page_repositories if not repo.get("private", False))
+            repositories.extend(
+                repo for repo in page_repositories if not repo.get("private", False)
+            )
             if len(page_repositories) < 100:
                 break
             page += 1
@@ -136,7 +147,11 @@ def has_non_automated_commit(client: GitHubClient, repository: dict[str, Any], t
     try:
         commits = client.get_json(f"/repos/{repository['full_name']}/commits?{query}")
     except GitHubAPIError as error:
-        if error.status in (404, 409):
+        if error.status in (401, 403, 404, 409, 429):
+            print(
+                f"Warning: could not inspect commit history for {repository['full_name']} "
+                f"(HTTP {error.status}); continuing with a conservative snapshot."
+            )
             return False
         raise
 
@@ -178,8 +193,31 @@ def collect_dashboard_data(
     today: str,
 ) -> dict[str, Any]:
     username = config["github_username"]
-    profile = client.get_json(f"/users/{urllib.parse.quote(username, safe='')}")
-    repositories = client.get_repositories(urllib.parse.quote(username, safe=""))
+    try:
+        profile = client.get_json(f"/users/{urllib.parse.quote(username, safe='')}")
+    except GitHubAPIError as error:
+        if error.status not in (401, 403, 429):
+            raise
+        print(
+            f"Warning: GitHub profile lookup failed for {username} (HTTP {error.status}); using a minimal dashboard snapshot."
+        )
+        profile = {
+            "login": username,
+            "public_repos": 0,
+            "followers": 0,
+            "following": 0,
+            "public_gists": 0,
+        }
+
+    try:
+        repositories = client.get_repositories(urllib.parse.quote(username, safe=""))
+    except GitHubAPIError as error:
+        if error.status not in (401, 403, 429):
+            raise
+        print(
+            f"Warning: GitHub repository listing failed for {username} (HTTP {error.status}); continuing with no repository data."
+        )
+        repositories = []
     repositories.sort(key=lambda repo: repo.get("updated_at") or "", reverse=True)
 
     recent_limit = max(1, int(config.get("recent_repository_limit", 5)))
@@ -193,7 +231,11 @@ def collect_dashboard_data(
         try:
             languages = client.get_json(f"/repos/{repository['full_name']}/languages")
         except GitHubAPIError as error:
-            if error.status == 404:
+            if error.status in (401, 403, 404, 409, 429):
+                print(
+                    f"Warning: could not read language stats for {repository['full_name']} "
+                    f"(HTTP {error.status}); skipping that repository's language data."
+                )
                 continue
             raise
         if isinstance(languages, dict):
@@ -215,7 +257,11 @@ def collect_dashboard_data(
         try:
             commits = client.get_json(f"/repos/{repository['full_name']}/commits?per_page=1")
         except GitHubAPIError as error:
-            if error.status in (404, 409):
+            if error.status in (401, 403, 404, 409, 429):
+                print(
+                    f"Warning: could not inspect recent commits for {repository['full_name']} "
+                    f"(HTTP {error.status}); skipping commit metadata for this repository."
+                )
                 continue
             raise
         if not isinstance(commits, list) or not commits:
@@ -227,7 +273,9 @@ def collect_dashboard_data(
                 "repository": repository,
                 "sha": commit.get("sha", "")[:7],
                 "message": (commit_data.get("message") or "").splitlines()[0],
-                "date": (commit_data.get("author") or commit_data.get("committer") or {}).get("date"),
+                "date": (commit_data.get("author") or commit_data.get("committer") or {}).get(
+                    "date"
+                ),
                 "url": commit.get("html_url", repository.get("html_url", "#")),
             }
         )
@@ -384,10 +432,13 @@ def collection_entry(
     data: dict[str, Any],
     config: dict[str, Any],
 ) -> str:
-    recent = "\n".join(
-        f"  - {repository_link(item)} (updated {short_date(item.get('updated_at'))})"
-        for item in data["recent_repositories"]
-    ) or "  - No public repositories were returned by the GitHub API."
+    recent = (
+        "\n".join(
+            f"  - {repository_link(item)} (updated {short_date(item.get('updated_at'))})"
+            for item in data["recent_repositories"]
+        )
+        or "  - No public repositories were returned by the GitHub API."
+    )
     stats = data["stats"]
     return f"""{entry_marker(today, slot)}
 ## {today} - {slot_label} Manila
@@ -418,7 +469,9 @@ def sync_collection_repositories(
 
     keywords = [value.casefold() for value in config["collection_repo_name_keywords"]]
     explicit_names = {value.casefold() for value in config.get("collection_repo_names", [])}
-    excluded_names = {value.casefold() for value in config.get("collection_repo_excluded_names", [])}
+    excluded_names = {
+        value.casefold() for value in config.get("collection_repo_excluded_names", [])
+    }
     targets = [
         repository
         for repository in repositories
@@ -503,7 +556,9 @@ def sync_collection_repositories(
     if skipped:
         print(f"Skipped {len(skipped)} repository entries due to access restrictions.")
     if failures:
-        raise RuntimeError("Some collection repositories could not be updated: " + "; ".join(failures))
+        raise RuntimeError(
+            "Some collection repositories could not be updated: " + "; ".join(failures)
+        )
 
 
 def build_readme(
@@ -520,7 +575,9 @@ def build_readme(
         "INTRO": config["intro"].strip(),
         "PROFILE_URL": f"https://github.com/{urllib.parse.quote(config['github_username'], safe='')}",
         "LOCATION_LINE": (
-            f"**Location:** {markdown_cell(config['location'])}  \n" if config.get("location") else ""
+            f"**Location:** {markdown_cell(config['location'])}  \n"
+            if config.get("location")
+            else ""
         ),
         "PROFILE_STATS": render_stats(data["stats"]),
         "FOCUS_AREAS": render_focus_areas(config["focus_areas"]),
@@ -529,7 +586,9 @@ def build_readme(
         "LATEST_COMMITS": render_latest_commits(data["latest_commits"]),
         "ENGINEERING_SUMMARY": data["engineering_summary"],
         "LAST_REFRESHED": f"{today} {slot_label} Manila",
-        "PROFILE_BIO": markdown_cell(profile.get("bio") or "Computer Engineering student building practical systems.")
+        "PROFILE_BIO": markdown_cell(
+            profile.get("bio") or "Computer Engineering student building practical systems."
+        ),
     }
     rendered = template
     for key, value in values.items():
