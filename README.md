@@ -25,35 +25,35 @@ I am a Computer Engineering student building practical projects at the intersect
 
 ## Programming Languages
 
-Jupyter Notebook (44.8%), C++ (13.2%), JavaScript (9.1%), PHP (8.8%), Python (8.6%), CSS (7.6%), HTML (6.1%), Assembly (1.7%), PowerShell (0.0%), Batchfile (0.0%)<br>
+Jupyter Notebook (42.3%), C++ (18.0%), JavaScript (8.6%), PHP (8.3%), Python (8.1%), CSS (7.1%), HTML (5.7%), Assembly (1.6%), PowerShell (0.0%), Batchfile (0.0%), C (0.0%)<br>
 *Measured across the 14 most recently updated public repositories.*
 
 ## Recently Updated Repositories
 
 | Repository | Language | Updated | Description |
 | --- | --- | ---: | --- |
-| [SD-card-file-Extractor-using-ESP-32](https://github.com/Comp-Alex/SD-card-file-Extractor-using-ESP-32) | - | 2026-11-08 | The SD Card File Extractor Using ESP32 is an embedded system project designed to read, access, and extract files stored on an SD card using the ESP32 microcontroller. The system acts as an interface between the SD card and a connected device, allowing users to view, retrieve, and transfer stored data efficiently.  |
-| [MazeBot-Finals-in-Microprocessor-Lab](https://github.com/Comp-Alex/MazeBot-Finals-in-Microprocessor-Lab) | Python | 2026-11-08 | This is the code and video Repository for our MazeBot  |
-| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | Jupyter Notebook | 2026-11-08 | - |
-| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | HTML | 2026-11-07 | My Activities For Software Design Laboratory |
-| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | Python | 2026-11-07 | - |
+| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | HTML | 2026-11-08 | My Activities For Software Design Laboratory |
+| [SD-card-file-Extractor-using-ESP-32](https://github.com/Comp-Alex/SD-card-file-Extractor-using-ESP-32) | C++ | 2026-11-08 | The SD Card File Extractor Using ESP32 is an embedded system project designed to read, access, and extract files stored on an SD card using the ESP32 microcontroller. The system acts as an interface between the SD card and a connected device, allowing users to view, retrieve, and transfer stored data efficiently.  |
+| [Random-activities](https://github.com/Comp-Alex/Random-activities) | Python | 2026-11-08 | - |
+| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | C++ | 2026-11-08 | - |
+| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | Python | 2026-11-08 | - |
 
 ## Latest Commits
 
 | Repository | Latest commit | Date |
 | --- | --- | ---: |
-| [SD-card-file-Extractor-using-ESP-32](https://github.com/Comp-Alex/SD-card-file-Extractor-using-ESP-32) | [86679b8](https://github.com/Comp-Alex/SD-card-file-Extractor-using-ESP-32/commit/86679b8f0c6e7430697e1e3bd758528d94a530b6) Initial commit | 2026-11-08 |
-| [MazeBot-Finals-in-Microprocessor-Lab](https://github.com/Comp-Alex/MazeBot-Finals-in-Microprocessor-Lab) | [63b7fe9](https://github.com/Comp-Alex/MazeBot-Finals-in-Microprocessor-Lab/commit/63b7fe9b254f251cbde4e474c6f65f91d9e41060) chore: refresh robotics dashboard [skip ci] | 2026-11-08 |
-| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [7a79df0](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/7a79df0109222eb51d0304449c352e72fa24582d) Update engineering dashboard | 2026-11-08 |
-| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | [97269ce](https://github.com/Comp-Alex/Software-Design-Lab-Activities/commit/97269ce0a76a2ba5f6e79725fa227965de7e56fc) docs: update engineering journal 2026-11-08 1:45 AM Manila | 2026-11-07 |
-| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [d32cc7f](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/d32cc7f7a7fc5a9e23b472354046e64c6386414e) docs: update engineering journal 2026-11-08 1:45 AM Manila | 2026-11-07 |
+| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | [b1f0070](https://github.com/Comp-Alex/Software-Design-Lab-Activities/commit/b1f007090bda13289db6cd41359c515062ef4c89) chore: refresh engineering dashboard data | 2026-11-08 |
+| [SD-card-file-Extractor-using-ESP-32](https://github.com/Comp-Alex/SD-card-file-Extractor-using-ESP-32) | [50d26a5](https://github.com/Comp-Alex/SD-card-file-Extractor-using-ESP-32/commit/50d26a566de8226bb4540e63681737438940b82d) Add ESP32 File Hub firmware | 2026-11-08 |
+| [Random-activities](https://github.com/Comp-Alex/Random-activities) | [d02c9ce](https://github.com/Comp-Alex/Random-activities/commit/d02c9cec6c85d04c4610a91b52b3143317e65e33) docs: update engineering journal 2026-11-08 9:45 AM Manila | 2026-11-08 |
+| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | [2cdfc08](https://github.com/Comp-Alex/Microprocessor-Lab-Activities/commit/2cdfc0864ca05db81803651e38798d38ce564d09) docs: update engineering journal 2026-11-08 9:45 AM Manila | 2026-11-08 |
+| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [f5ac1ea](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/f5ac1ead3d3611cf4b44d8c661de4dbef24d3bd5) docs: update engineering journal 2026-11-08 9:45 AM Manila | 2026-11-08 |
 
 ## Engineering Journal
 
-**Today's summary:** GitHub recorded non-dashboard pushes to 1 public repository today: SD-card-file-Extractor-using-ESP-32. This journal entry captures the current profile and repository snapshot.
+**Today's summary:** No non-dashboard repository pushes were recorded on 2026-11-09. This entry captures the daily profile snapshot and keeps the engineering journal continuous; it does not infer coding activity from an unchanged repository list.
 
 Scheduled profile snapshots are recorded in the [engineering activity log](dashboard/activity-log.md). The journal continues on quiet repository days too; an unchanged repository list is not treated as proof of inactivity.
 
 ---
 
-*Dashboard refreshed 2026-11-08 9:45 AM Manila from the GitHub API.*
+*Dashboard refreshed 2026-11-09 5:45 PM Manila from the GitHub API.*
