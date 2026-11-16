@@ -11,7 +11,7 @@ I am a Computer Engineering student building practical projects at the intersect
 
 | Repositories | Public repositories | Followers | Following | Public gists | Stars | Forks |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 14 | 14 | 14 | 16 | 0 | 0 | 0 |
+| 14 | 14 | 13 | 16 | 0 | 0 | 0 |
 
 ## Engineering Focus
 
@@ -42,18 +42,18 @@ Jupyter Notebook (42.3%), C++ (18.0%), JavaScript (8.6%), PHP (8.3%), Python (8.
 
 | Repository | Latest commit | Date |
 | --- | --- | ---: |
-| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | [a0517e2](https://github.com/Comp-Alex/Software-Design-Lab-Activities/commit/a0517e285e07ff4ac58ac12b3a756fb9f5cecafb) docs: update engineering journal 2026-11-16 1:45 AM Manila | 2026-11-15 |
-| [Random-activities](https://github.com/Comp-Alex/Random-activities) | [5018236](https://github.com/Comp-Alex/Random-activities/commit/5018236e0ce8279b6cc791684057c0081c103433) docs: update engineering journal 2026-11-16 1:45 AM Manila | 2026-11-15 |
-| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | [2041f36](https://github.com/Comp-Alex/Microprocessor-Lab-Activities/commit/2041f3626b77eccaad0790741da39586915a15d2) docs: update engineering journal 2026-11-16 1:45 AM Manila | 2026-11-15 |
-| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [647d816](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/647d81601c97963020f64c72f8bf7e5fee0d8f1c) docs: update engineering journal 2026-11-16 1:45 AM Manila | 2026-11-15 |
-| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [6c687f1](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/6c687f1ef0956fd1f67128e27ab9a07137a9b495) Update engineering dashboard | 2026-11-16 |
+| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | [2ae4395](https://github.com/Comp-Alex/Software-Design-Lab-Activities/commit/2ae43953521f8610f4e9b590060e229e15a08b54) chore: refresh engineering dashboard data | 2026-11-16 |
+| [Random-activities](https://github.com/Comp-Alex/Random-activities) | [ab93c13](https://github.com/Comp-Alex/Random-activities/commit/ab93c138b3cbeb15558c1944169891a7943e365e) docs: update engineering journal 2026-11-16 9:45 AM Manila | 2026-11-16 |
+| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | [4b2b2e6](https://github.com/Comp-Alex/Microprocessor-Lab-Activities/commit/4b2b2e6e3661e8b0dee34d3b15f8e25d66802d77) docs: update engineering journal 2026-11-16 9:45 AM Manila | 2026-11-16 |
+| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [b076c44](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/b076c44f4f71f28613474d69a07dcbba0d975e47) docs: update engineering journal 2026-11-16 9:45 AM Manila | 2026-11-16 |
+| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [86b175c](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/86b175c0541f1e41f808cb975c01bb9e617b53af) docs: update engineering journal 2026-11-16 9:45 AM Manila | 2026-11-16 |
 
 ## Engineering Journal
 
-**Today's summary:** No non-dashboard repository pushes were recorded on 2026-11-16. This entry captures the daily profile snapshot and keeps the engineering journal continuous; it does not infer coding activity from an unchanged repository list.
+**Today's summary:** No non-dashboard repository pushes were recorded on 2026-11-17. This entry captures the daily profile snapshot and keeps the engineering journal continuous; it does not infer coding activity from an unchanged repository list.
 
 Scheduled profile snapshots are recorded in the [engineering activity log](dashboard/activity-log.md). The journal continues on quiet repository days too; an unchanged repository list is not treated as proof of inactivity.
 
 ---
 
-*Dashboard refreshed 2026-11-16 9:45 AM Manila from the GitHub API.*
+*Dashboard refreshed 2026-11-17 5:45 PM Manila from the GitHub API.*
