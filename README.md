@@ -42,11 +42,11 @@ Jupyter Notebook (42.3%), C++ (18.0%), JavaScript (8.6%), PHP (8.3%), Python (8.
 
 | Repository | Latest commit | Date |
 | --- | --- | ---: |
-| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | [2ae4395](https://github.com/Comp-Alex/Software-Design-Lab-Activities/commit/2ae43953521f8610f4e9b590060e229e15a08b54) chore: refresh engineering dashboard data | 2026-11-16 |
-| [Random-activities](https://github.com/Comp-Alex/Random-activities) | [ab93c13](https://github.com/Comp-Alex/Random-activities/commit/ab93c138b3cbeb15558c1944169891a7943e365e) docs: update engineering journal 2026-11-16 9:45 AM Manila | 2026-11-16 |
-| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | [4b2b2e6](https://github.com/Comp-Alex/Microprocessor-Lab-Activities/commit/4b2b2e6e3661e8b0dee34d3b15f8e25d66802d77) docs: update engineering journal 2026-11-16 9:45 AM Manila | 2026-11-16 |
-| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [b076c44](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/b076c44f4f71f28613474d69a07dcbba0d975e47) docs: update engineering journal 2026-11-16 9:45 AM Manila | 2026-11-16 |
-| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [86b175c](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/86b175c0541f1e41f808cb975c01bb9e617b53af) docs: update engineering journal 2026-11-16 9:45 AM Manila | 2026-11-16 |
+| [Software-Design-Lab-Activities](https://github.com/Comp-Alex/Software-Design-Lab-Activities) | [f9ff0ad](https://github.com/Comp-Alex/Software-Design-Lab-Activities/commit/f9ff0adfe472a91d975e95dd949c696f271f22a9) docs: update engineering journal 2026-11-17 5:45 PM Manila | 2026-11-16 |
+| [Random-activities](https://github.com/Comp-Alex/Random-activities) | [7c911bd](https://github.com/Comp-Alex/Random-activities/commit/7c911bd652caf886110ad566611b1a83060b99d4) docs: update engineering journal 2026-11-17 5:45 PM Manila | 2026-11-16 |
+| [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | [3be6167](https://github.com/Comp-Alex/Microprocessor-Lab-Activities/commit/3be61673b8c7bdacabc6562b8d94fe24a1773c3e) docs: update engineering journal 2026-11-17 5:45 PM Manila | 2026-11-16 |
+| [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [6663ac9](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/6663ac996fa02ede859ed21de0f9fa60674055bd) docs: update engineering journal 2026-11-17 5:45 PM Manila | 2026-11-16 |
+| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [2782cb2](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/2782cb21af7b54179f8e27cc2a4ec4bf4212c27a) docs: update engineering journal 2026-11-17 5:45 PM Manila | 2026-11-16 |
 
 ## Engineering Journal
 
@@ -56,4 +56,4 @@ Scheduled profile snapshots are recorded in the [engineering activity log](dashb
 
 ---
 
-*Dashboard refreshed 2026-11-17 5:45 PM Manila from the GitHub API.*
+*Dashboard refreshed 2026-11-17 1:45 AM Manila from the GitHub API.*
