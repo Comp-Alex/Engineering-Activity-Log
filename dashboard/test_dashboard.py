@@ -1,3 +1,4 @@
+import base64
 import unittest
 
 from dashboard.dashboard import (
@@ -9,6 +10,99 @@ from dashboard.dashboard import (
 
 
 class SyncCollectionRepositoriesTests(unittest.TestCase):
+    def test_sync_continues_when_collection_read_access_is_denied(self):
+        config = {
+            "github_username": "octocat",
+            "collection_repo_name_keywords": ["activities", "lab"],
+            "collection_repo_names": [],
+            "collection_repo_excluded_names": [],
+            "collection_log_path": ".github/engineering-activity-log.md",
+            "recent_repository_limit": 3,
+            "focus_areas": ["Robotics"],
+        }
+
+        class FakeReadClient(GitHubClient):
+            def __init__(self) -> None:
+                super().__init__(None)
+
+            def get_json(self, endpoint):
+                raise GitHubAPIError(403, '{"message":"rate limit exceeded"}')
+
+            def get_repositories(self, username):
+                raise GitHubAPIError(403, '{"message":"rate limit exceeded"}')
+
+        class FakeWriteClient(GitHubClient):
+            def __init__(self) -> None:
+                super().__init__("token")
+
+        sync_collection_repositories(
+            FakeReadClient(),
+            FakeWriteClient(),
+            config,
+            "2026-10-25",
+            "0945",
+            "9:45 AM",
+        )
+
+    def test_sync_retries_conflicting_repository_write(self):
+        config = {
+            "github_username": "octocat",
+            "collection_repo_name_keywords": ["activities", "lab"],
+            "collection_repo_names": [],
+            "collection_repo_excluded_names": [],
+            "collection_log_path": ".github/engineering-activity-log.md",
+            "recent_repository_limit": 3,
+            "focus_areas": ["Robotics"],
+        }
+        profile = {"public_repos": 1, "followers": 0, "following": 0, "public_gists": 0}
+        repo = {
+            "full_name": "octocat/activity-lab",
+            "name": "activity-lab",
+            "html_url": "https://github.com/octocat/activity-lab",
+            "updated_at": "2026-10-25T12:00:00Z",
+            "stargazers_count": 0,
+            "forks_count": 0,
+        }
+
+        class FakeReadClient(GitHubClient):
+            def __init__(self) -> None:
+                super().__init__(None)
+
+            def get_json(self, endpoint):
+                if endpoint == "/users/octocat":
+                    return profile
+                raise AssertionError(f"Unexpected read endpoint: {endpoint}")
+
+            def get_repositories(self, username):
+                return [repo]
+
+        class FakeWriteClient(GitHubClient):
+            def __init__(self) -> None:
+                super().__init__("token")
+                self.put_count = 0
+
+            def get_json(self, endpoint):
+                content = base64.b64encode(
+                    b"# Engineering Activity Journal\n\nExisting journal.\n"
+                ).decode("ascii")
+                return {"content": content, "sha": "latest-sha"}
+
+            def put_json(self, endpoint, payload):
+                self.put_count += 1
+                if self.put_count == 1:
+                    raise GitHubAPIError(409, '{"message":"Conflict"}')
+
+        write_client = FakeWriteClient()
+        sync_collection_repositories(
+            FakeReadClient(),
+            write_client,
+            config,
+            "2026-10-25",
+            "0945",
+            "9:45 AM",
+        )
+        self.assertEqual(write_client.put_count, 2)
+
     def test_sync_ignores_repo_write_forbidden_errors(self):
         config = {
             "github_username": "octocat",

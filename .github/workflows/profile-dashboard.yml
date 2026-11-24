@@ -43,6 +43,8 @@ jobs:
             echo "Dashboard is already up to date."
           else
             git commit -m "chore: update profile dashboard"
+            git fetch origin main
+            git rebase origin/main
             git push origin HEAD:main
           fi
 

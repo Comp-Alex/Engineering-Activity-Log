@@ -463,8 +463,26 @@ def sync_collection_repositories(
     slot_label: str,
 ) -> None:
     username = urllib.parse.quote(config["github_username"], safe="")
-    profile = read_client.get_json(f"/users/{username}")
-    repositories = read_client.get_repositories(username)
+    try:
+        profile = read_client.get_json(f"/users/{username}")
+    except GitHubAPIError as error:
+        if error.status not in (401, 403, 404, 429):
+            raise
+        print(
+            f"Warning: GitHub profile lookup failed for {config['github_username']} "
+            f"(HTTP {error.status}); using a minimal cross-repository snapshot."
+        )
+        profile = {"public_repos": 0, "followers": 0, "following": 0, "public_gists": 0}
+    try:
+        repositories = read_client.get_repositories(username)
+    except GitHubAPIError as error:
+        if error.status not in (401, 403, 404, 429):
+            raise
+        print(
+            f"Warning: GitHub repository listing failed for {config['github_username']} "
+            f"(HTTP {error.status}); collection repositories could not be discovered."
+        )
+        repositories = []
     repositories.sort(key=lambda repo: repo.get("updated_at") or "", reverse=True)
 
     keywords = [value.casefold() for value in config["collection_repo_name_keywords"]]
@@ -539,6 +557,36 @@ def sync_collection_repositories(
             try:
                 write_client.put_json(endpoint, payload)
             except GitHubAPIError as error:
+                if error.status in (409, 422):
+                    try:
+                        latest = write_client.get_json(endpoint)
+                        latest_sha = latest.get("sha") if isinstance(latest, dict) else None
+                        latest_content = (
+                            base64.b64decode(latest["content"]).decode("utf-8")
+                            if isinstance(latest, dict)
+                            else ""
+                        )
+                        latest_updated = upsert_daily_entry(latest_content, entry, today, slot)
+                        if latest_updated == latest_content:
+                            print(f"Unchanged: {repository['full_name']}/{log_path}")
+                            continue
+                        payload["sha"] = latest_sha
+                        payload["content"] = base64.b64encode(
+                            latest_updated.encode("utf-8")
+                        ).decode("ascii")
+                        write_client.put_json(endpoint, payload)
+                    except GitHubAPIError as retry_error:
+                        if retry_error.status in (401, 403, 404, 409, 422):
+                            skipped.append(f"{repository['full_name']}: {retry_error.status}")
+                            print(
+                                f"Skipped: {repository['full_name']}/{log_path} "
+                                f"(HTTP {retry_error.status}); "
+                                "the repository could not be updated safely."
+                            )
+                            continue
+                        raise
+                    print(f"Updated: {repository['full_name']}/{log_path}")
+                    continue
                 if error.status in (401, 403):
                     skipped.append(f"{repository['full_name']}: {error.status}")
                     print(
