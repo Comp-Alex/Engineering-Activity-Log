@@ -25,7 +25,7 @@ I am a Computer Engineering student building practical projects at the intersect
 
 ## Programming Languages
 
-Jupyter Notebook (42.3%), C++ (18.0%), JavaScript (8.6%), PHP (8.3%), Python (8.1%), CSS (7.1%), HTML (5.7%), Assembly (1.6%), PowerShell (0.0%), Batchfile (0.0%), C (0.0%)<br>
+Jupyter Notebook (42.2%), C++ (18.0%), JavaScript (8.6%), Python (8.3%), PHP (8.3%), CSS (7.1%), HTML (5.7%), Assembly (1.6%), PowerShell (0.0%), Batchfile (0.0%), C (0.0%)<br>
 *Measured across the 14 most recently updated public repositories.*
 
 ## Recently Updated Repositories
@@ -46,14 +46,14 @@ Jupyter Notebook (42.3%), C++ (18.0%), JavaScript (8.6%), PHP (8.3%), Python (8.
 | [Random-activities](https://github.com/Comp-Alex/Random-activities) | [30302c9](https://github.com/Comp-Alex/Random-activities/commit/30302c9307e62de289fe6cf3cef16d3a25a11e6f) docs: update engineering journal 2026-11-18 9:45 AM Manila | 2026-11-18 |
 | [Microprocessor-Lab-Activities](https://github.com/Comp-Alex/Microprocessor-Lab-Activities) | [9086b03](https://github.com/Comp-Alex/Microprocessor-Lab-Activities/commit/9086b0370504b33a0e1aac77a8a05536e80c9780) docs: update engineering journal 2026-11-18 9:45 AM Manila | 2026-11-18 |
 | [Computer-Architecture-and-Organization-Lab-Activities](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities) | [2ce8c6d](https://github.com/Comp-Alex/Computer-Architecture-and-Organization-Lab-Activities/commit/2ce8c6d42047db767a213460b33866a74ce5c99e) docs: update engineering journal 2026-11-18 9:45 AM Manila | 2026-11-18 |
-| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [5910414](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/59104148ca06754634b7a7681b70f0b00853b04c) Update engineering dashboard | 2026-11-23 |
+| [Control-Systems-Lab-Activities](https://github.com/Comp-Alex/Control-Systems-Lab-Activities) | [963a6bb](https://github.com/Comp-Alex/Control-Systems-Lab-Activities/commit/963a6bbefa1dab20200b9d61024b2cdc6e561b71) Update engineering dashboard | 2026-11-24 |
 
 ## Engineering Journal
 
-**Today's summary:** No non-dashboard repository pushes were recorded on 2026-11-24. This entry captures the daily profile snapshot and keeps the engineering journal continuous; it does not infer coding activity from an unchanged repository list.
+**Today's summary:** GitHub recorded non-dashboard pushes to 1 public repository today: Engineering-Activity-Log. This journal entry captures the current profile and repository snapshot.
 
 Scheduled profile snapshots are recorded in the [engineering activity log](dashboard/activity-log.md). The journal continues on quiet repository days too; an unchanged repository list is not treated as proof of inactivity.
 
 ---
 
-*Dashboard refreshed 2026-11-24 1:45 AM Manila from the GitHub API.*
+*Dashboard refreshed 2026-11-24 9:45 AM Manila from the GitHub API.*
